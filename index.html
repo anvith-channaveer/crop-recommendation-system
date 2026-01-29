@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-seedling header-icon"></i>
+                <h1>Crop Prediction System</h1>
+                <p class="subtitle">AI-Powered Crop Recommendation Based on Soil & Environmental Parameters</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Form Card -->
+            <div class="card form-card">
+                <h2><i class="fas fa-clipboard-list"></i> Enter Parameters</h2>
+                <form id="predictionForm" class="prediction-form">
+                    <div class="form-grid">
+                        <!-- Nitrogen -->
+                        <div class="form-group">
+                            <label for="N">
+                                <i class="fas fa-atom"></i> Nitrogen (N)
+                                <span class="unit">(0-150)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="N" 
+                                name="N" 
+                                min="0" 
+                                max="150" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter Nitrogen value"
+                            >
+                        </div>
+
+                        <!-- Phosphorus -->
+                        <div class="form-group">
+                            <label for="P">
+                                <i class="fas fa-flask"></i> Phosphorus (P)
+                                <span class="unit">(0-150)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="P" 
+                                name="P" 
+                                min="0" 
+                                max="150" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter Phosphorus value"
+                            >
+                        </div>
+
+                        <!-- Potassium -->
+                        <div class="form-group">
+                            <label for="K">
+                                <i class="fas fa-leaf"></i> Potassium (K)
+                                <span class="unit">(0-150)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="K" 
+                                name="K" 
+                                min="0" 
+                                max="150" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter Potassium value"
+                            >
+                        </div>
+
+                        <!-- Temperature -->
+                        <div class="form-group">
+                            <label for="temperature">
+                                <i class="fas fa-thermometer-half"></i> Temperature
+                                <span class="unit">(°C, 0-50)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="temperature" 
+                                name="temperature" 
+                                min="0" 
+                                max="50" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter Temperature"
+                            >
+                        </div>
+
+                        <!-- Humidity -->
+                        <div class="form-group">
+                            <label for="humidity">
+                                <i class="fas fa-tint"></i> Humidity
+                                <span class="unit">(%, 0-100)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="humidity" 
+                                name="humidity" 
+                                min="0" 
+                                max="100" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter Humidity"
+                            >
+                        </div>
+
+                        <!-- pH -->
+                        <div class="form-group">
+                            <label for="ph">
+                                <i class="fas fa-vial"></i> pH Value
+                                <span class="unit">(0-14)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="ph" 
+                                name="ph" 
+                                min="0" 
+                                max="14" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter pH value"
+                            >
+                        </div>
+
+                        <!-- Rainfall -->
+                        <div class="form-group">
+                            <label for="rainfall">
+                                <i class="fas fa-cloud-rain"></i> Rainfall
+                                <span class="unit">(mm, 0-500)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="rainfall" 
+                                name="rainfall" 
+                                min="0" 
+                                max="500" 
+                                step="0.1" 
+                                required
+                                placeholder="Enter Rainfall"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-search"></i>
+                        <span>Predict Crop</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Result Card -->
+            <div class="card result-card" id="resultCard" style="display: none;">
+                <h2><i class="fas fa-chart-line"></i> Prediction Result</h2>
+                <div id="resultContent">
+                    <!-- Result will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Error Card -->
+            <div class="card error-card" id="errorCard" style="display: none;">
+                <h2><i class="fas fa-exclamation-triangle"></i> Error</h2>
+                <p id="errorMessage"></p>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing parameters...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with <i class="fas fa-heart"></i> using Random Forest ML Algorithm</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
